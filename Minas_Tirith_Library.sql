@@ -17,14 +17,14 @@ SELECT * FROM Library_Branch;
 
 CREATE TABLE Borrower (CardNumber VARCHAR(50) PRIMARY KEY NOT NULL, BorrowerName VARCHAR(100) NOT NULL, BorrowerAddress VARCHAR(50) NOT NULL, BorrowerPhone VARCHAR(20) NOT NULL);
 INSERT INTO Borrower VALUES 
-('Tom Bombadil', 'Withywindle', '508-295-2171'),
-('Meriadoc Brandybuck', 'Brandy Hall, Bucklebury', '203-685-9379'),
-('Peregrin Took', '32 Thain St, Shire', '360-748-3720'),
-('Barliman Butterbur', 'Inn of the Prancing Pony', '707-684-6237'),
-('Éowyn of Ithilien', 'Emyn Arnen', '114-816-3312'),
-('Faramir of Ithilien', 'Emyn Arnen', '114-816-3312'),
-('Bergil Beregond', '9 Borlas Lane, Minas Tirith', '339-585-2952'),
-('Bain Bowman', '24 Parganas Lake-town', '425-985-3848');
+('B2171', 'Tom Bombadil', 'Withywindle', '508-295-2171'),
+('B9379', 'Meriadoc Brandybuck', 'Brandy Hall, Bucklebury', '203-685-9379'),
+('T3720', 'Peregrin Took', '32 Thain St, Shire', '360-748-3720'),
+('B6237', 'Barliman Butterbur', 'Inn of the Prancing Pony', '707-684-6237'),
+('I3312', 'Éowyn of Ithilien', 'Emyn Arnen', '114-816-3312'),
+('IF3312', 'Faramir of Ithilien', 'Emyn Arnen', '114-816-3312'),
+('B2952', 'Bergil Beregond', '9 Borlas Lane, Minas Tirith', '339-585-2952'),
+('B3848', 'Bain Bowman', '24 Parganas Lake-town', '425-985-3848');
 SELECT * FROM Borrower;
 
 
