@@ -15,16 +15,17 @@ SELECT * FROM Library_Branch;
 
 
 
-CREATE TABLE Borrower (CardNumber INT NOT NULL PRIMARY KEY IDENTITY(), BorrowerName, BorrowerAddress, BorrowerPhone);
+CREATE TABLE Borrower (CardNumber VARCHAR(50) PRIMARY KEY NOT NULL, BorrowerName VARCHAR(100) NOT NULL, BorrowerAddress VARCHAR(50) NOT NULL, BorrowerPhone VARCHAR(20) NOT NULL);
 INSERT INTO Borrower VALUES 
-('Tom Bombadil',),
-(),
-(),
-(),
-(),
-(),
-(),
-();
+('Tom Bombadil', 'Withywindle', ),
+('Meriadoc Brandybuck', '', ),
+('Peregrin Took', '', ),
+('Barliman Butterbur', 'Inn of the Prancing Pony', '707-684-6237'),
+('Éowyn of Ithilien', 'Emyn Arnen', ),
+('Faramir of Ithilien', 'Emyn Arnen', ),
+('Bergil Beregond', '', ),
+('', '', );
+SELECT * FROM Borrower;
 
 
 CREATE TABLE Book_Copies (BookID INT NOT NULL, BranchID INT NOT NULL, NumberOfCopies );
