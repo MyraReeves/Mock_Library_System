@@ -43,7 +43,7 @@ SELECT * FROM Book_Copies;
 
 
 
-CREATE TABLE Books (BookID INT NOT NULL PRIMARY KEY IDENTITY(100, 1), Title VARCHAR(50), PublisherName INT NOT NULL);
+CREATE TABLE Books (BookID INT NOT NULL PRIMARY KEY IDENTITY(100, 1), Title VARCHAR(50), PublisherID INT NOT NULL);
 INSERT INTO Books VALUES 
 ('The Children of Húrin', 1961),
 ('Beren and Lúthien', 1961 ),
@@ -58,12 +58,24 @@ ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
 
 
 
+
+CREATE TABLE Publisher (PublisherID INT NOT NULL PRIMARY KEY IDENTITY(1960, 1), PubName VARCHAR(30), PubAddress VARCHAR(100), PubPhone VARCHAR(25) );
+INSERT INTO Publisher VALUES
+('George Allen & Unwin', '77 Fulham Palace Road, London, W6 8JA, England', '+44-0-20-7269-1610'),
+('HarperCollins', '195 Broadway, New York, NY 10007', '212-207-7000'),
+('Houghton Mifflin Harcourt', '9400 Southpark Center Loop, Orlando, FL 32819', '407-345-2000');
+SELECT * FROM Publisher;
+
+ALTER TABLE Books ADD FOREIGN KEY (PublisherID) REFERENCES Publisher(PublisherID);
+
+
+
+
 CREATE TABLE On_Loan (BookID INT NOT NULL, BranchID INT NOT NULL, CardNumber, DateOut, DateDue);
 ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
 ALTER TABLE Book_Copies ADD FOREIGN KEY (BranchID) REFERENCES Library_Branch(BranchID);
 
 
-CREATE TABLE Publisher (PublisherName INT NOT NULL PRIMARY KEY IDENTITY(), PubAddress, PubPhone);
 
 
 CREATE TABLE Authors (BookId INT NOT NULL, AuthorName);
