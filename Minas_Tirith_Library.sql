@@ -24,17 +24,38 @@ INSERT INTO Borrower VALUES
 ('I3312', 'Éowyn of Ithilien', 'Emyn Arnen', '114-816-3312'),
 ('IF3312', 'Faramir of Ithilien', 'Emyn Arnen', '114-816-3312'),
 ('B2952', 'Bergil Beregond', '9 Borlas Lane, Minas Tirith', '339-585-2952'),
-('B3848', 'Bain Bowman', '24 Parganas Lake-town', '425-985-3848');
+('B3848', 'Bain Bowman', '24 Parganas, Lake-town', '425-985-3848');
 SELECT * FROM Borrower;
 
 
-CREATE TABLE Book_Copies (BookID INT NOT NULL, BranchID INT NOT NULL, NumberOfCopies );
-ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
+
+CREATE TABLE Book_Copies (BookID INT NOT NULL, BranchID INT NOT NULL, NumberOfCopies INT NOT NULL);
+INSERT INTO Book_Copies VALUES 
+(103, 1, 2),
+(101, 3, 5),
+(100, 3, 1),
+(105, 2, 3),
+(104, 5, 2),
+(102, 3, 5),
+(106, 4, 1);
 ALTER TABLE Book_Copies ADD FOREIGN KEY (BranchID) REFERENCES Library_Branch(BranchID);
+SELECT * FROM Book_Copies;
 
 
-CREATE TABLE Books (BookID INT NOT NULL PRIMARY KEY IDENTITY(100, 1), Title, PublisherName INT NOT NULL);
-ALTER TABLE Books ADD FOREIGN KEY (PublisherName) REFERENCES Publisher(PublisherName);
+
+CREATE TABLE Books (BookID INT NOT NULL PRIMARY KEY IDENTITY(100, 1), Title VARCHAR(50), PublisherName INT NOT NULL);
+INSERT INTO Books VALUES 
+('The Children of Húrin', 1961),
+('Beren and Lúthien', 1961 ),
+('Unfinished Tales of Númenor and Middle-earth', 1961 ),
+('There and Back Again, A Hobbit''s tale', 1960),
+('The Fall of Gondolin', 1962),
+('The Adventures of Tom Bombadil', 1962),
+('The Fall of Númenor', 1960);
+SELECT * FROM Books;
+
+ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
+
 
 
 CREATE TABLE On_Loan (BookID INT NOT NULL, BranchID INT NOT NULL, CardNumber, DateOut, DateDue);
