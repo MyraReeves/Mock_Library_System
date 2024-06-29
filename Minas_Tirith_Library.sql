@@ -54,8 +54,9 @@ INSERT INTO Books VALUES
 ('The Fall of Númenor', 1960);
 SELECT * FROM Books;
 
-ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
 
+
+ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
 
 
 
@@ -72,8 +73,12 @@ ALTER TABLE Books ADD FOREIGN KEY (PublisherID) REFERENCES Publisher(PublisherID
 
 
 CREATE TABLE On_Loan (BookID INT NOT NULL, BranchID INT NOT NULL, CardNumber, DateOut, DateDue);
-ALTER TABLE Book_Copies ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
-ALTER TABLE Book_Copies ADD FOREIGN KEY (BranchID) REFERENCES Library_Branch(BranchID);
+INSERT INTO On_Loan VALUES
+(103, 1, '823.912', '11-20-3021', '12-20-3021')
+(104, 5, '741.64', '11-13-3021', '12-13-3021')
+(105, 2, '299.792', '12-05-3021', '01-05-3022')
+ALTER TABLE On_Loan ADD FOREIGN KEY (BookId) REFERENCES Books(BookId);
+ALTER TABLE On_Loan ADD FOREIGN KEY (BranchID) REFERENCES Library_Branch(BranchID);
 
 
 
